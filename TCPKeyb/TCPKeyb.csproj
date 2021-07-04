@@ -13,6 +13,8 @@
     <UseWindowsForms>true</UseWindowsForms>
     <Configurations>Debug;Release</Configurations>
     <Platforms>AnyCPU;x64</Platforms>
+    <Version>0.5.0</Version>
+    <RepositoryUrl>https://github.com/fuzzymannerz/TCPKeyb</RepositoryUrl>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

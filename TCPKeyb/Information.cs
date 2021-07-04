@@ -1,10 +1,30 @@
-﻿using System.Drawing;
+﻿// TCPKeyb | <https://tcpkeyb.pixelra.in>
+// Copyright (c) 2021 Pixel Rain
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU Affero General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY - without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+// See the GNU Affero General Public License for more details.
+//
+// You should have received a copy of the GNU Affero General Public License
+// along with this program. If not, see <https://www.gnu.org/licenses/>.
+
+using System;
+using System.Drawing;
 using Console = Colorful.Console;
 
 namespace TCPKeyb
 {
     public class Information
     {
+
+        /// <summary>
+        /// Show application information screen
+        /// </summary>
         public static void Show()
         {
             Header.Draw();
@@ -20,6 +40,9 @@ namespace TCPKeyb
                 "\tThis program comes with ABSOLUTELY NO WARRANTY;\n" +
                 "\tTCPKeyb is free software, and you are welcome to\n" +
                 "\tredistribute it under certain conditions.", Color.Aquamarine);
+
+            Console.WriteLine("\tThe source code is available under a\n" +
+                              "\tGNU AGPL3 licence at the above URL.", Color.Aquamarine);
 
             Console.WriteLine(""); // blank
             Console.WriteLine(""); // blank
@@ -43,20 +66,17 @@ namespace TCPKeyb
             Console.Write("[ENTER]", Color.DarkOrange);
             Console.Write(" to return to the main menu ");
 
-            string response = Console.ReadLine().ToUpper();
+            Console.CursorVisible = false;
 
-            switch (response)
+            switch  (Console.ReadKey().Key)
             {
-                case ("L"):
+                case ConsoleKey.L:
                     Licence.Show();
                     break;
-                default:
+                case ConsoleKey.Enter:
                     Menu.Show();
                     break;
             }
-
-            Console.ReadLine();
-            Menu.Show();
         }
     }
 }

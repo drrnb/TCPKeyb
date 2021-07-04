@@ -1,4 +1,19 @@
-﻿using System;
+﻿// TCPKeyb | <https://tcpkeyb.pixelra.in>
+// Copyright (c) 2021 Pixel Rain
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU Affero General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY - without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+// See the GNU Affero General Public License for more details.
+//
+// You should have received a copy of the GNU Affero General Public License
+// along with this program. If not, see <https://www.gnu.org/licenses/>.
+
+using System;
 using System.Diagnostics;
 using System.Net.Sockets;
 using System.Runtime.InteropServices;
@@ -7,7 +22,6 @@ using System.Drawing;
 using Console = Colorful.Console;
 using System.Text.RegularExpressions;
 using System.Linq;
-using System.Text;
 
 namespace TCPKeyb
 {
@@ -20,6 +34,13 @@ namespace TCPKeyb
         private static NetworkStream stream;
         private static TcpClient client;
 
+
+
+        /// <summary>
+        /// Begin the connection and init the keyboard hooks
+        /// </summary>
+        /// <param name="server"></param>
+        /// <param name="port"></param>
         public static void InitKeyboardHookClient(string server, int port)
         {
             try
@@ -68,6 +89,8 @@ namespace TCPKeyb
                 Console.Write("[ENTER] ", Color.DarkOrange);
                 Console.Write("to exit TCPKeyb ");
 
+                Console.CursorVisible = false;
+
                 Beep.Disconnected();
 
                 Console.ReadLine();
@@ -77,6 +100,12 @@ namespace TCPKeyb
         }
 
 
+        /// <summary>
+        /// Splits text longer than lineLength characters into multilines
+        /// </summary>
+        /// <param name="text"></param>
+        /// <param name="lineLength"></param>
+        /// <returns></returns>
         private static string[] SpliceText(string text, int lineLength=46)
         {
             return Regex.Matches(text, ".{1," + lineLength + "}").Cast<Match>().Select(m => m.Value).ToArray();
@@ -98,6 +127,13 @@ namespace TCPKeyb
             int nCode, IntPtr wParam, IntPtr lParam);
 
 
+        /// <summary>
+        /// Called when a key is pressed
+        /// </summary>
+        /// <param name="nCode"></param>
+        /// <param name="wParam"></param>
+        /// <param name="lParam"></param>
+        /// <returns></returns>
         private static IntPtr HookCallback(int nCode, IntPtr wParam, IntPtr lParam)
         {
             try
@@ -137,6 +173,8 @@ namespace TCPKeyb
                 Console.Write("[ENTER] ", Color.DarkOrange);
                 Console.Write("to exit TCPKeyb ");
 
+                Console.CursorVisible = false;
+
                 Beep.Disconnected();
 
                 Console.ReadLine();
@@ -145,7 +183,8 @@ namespace TCPKeyb
             return CallNextHookEx(_hookID, nCode, wParam, lParam);
         }
 
-        ///////////////////////////////////////////////////////////////////////
+
+        #region Imports
 
         [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = true)]
         private static extern IntPtr SetWindowsHookEx(int idHook,
@@ -161,6 +200,8 @@ namespace TCPKeyb
 
         [DllImport("kernel32.dll", CharSet = CharSet.Auto, SetLastError = true)]
         private static extern IntPtr GetModuleHandle(string lpModuleName);
+
+        #endregion
 
     }
 }
