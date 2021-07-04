@@ -31,7 +31,7 @@ I am well aware that this same software could potentially be used for nefarious 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
-# Limitations & Known Issues
+## Limitations & Known Issues
 TCPKeyb as it currently stands has some know limitations and issues.  
 They are subject to being fixed (or features added) in future releases.
 
