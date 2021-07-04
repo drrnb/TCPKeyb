@@ -11,7 +11,7 @@ Send keystrokes over a network from one Windows computer to another.
 
 ## Installation
 
-Download the [latest version release](https://github.com/fuzzymannerz/TCPKey/releases/latest) and run it. It runs as a standalone application (.NET requirements are packaged in with the EXE) so no need to install it.   
+Download the [latest version release](https://github.com/fuzzymannerz/TCPKeyb/releases/latest) and run it. It runs as a standalone application (.NET requirements are packaged in with the EXE) so no need to install it.   
 *Note: If you don't know if you need x64 or x86, try x64 first and if it doesn't work, grab the other one instead.*  
 
 ## Usage
