@@ -45,7 +45,7 @@ They are subject to being fixed (or features added) in future releases.
 ## Show Some <3
 If you get some use from TCPKeyb feel free to buy me a chocolate bar or coffee.  
 
-**Ko-Fi:** [](https://ko-fi.com/fuzzy)  
+**Ko-Fi:** [https://ko-fi.com/fuzzy](https://ko-fi.com/fuzzy)  
 **BTC:** 1DUJH2kqccDpTHHSCXDkRGhxtvXm9PdnkN  
 **DOGE:** DNZbJrxv6UmeHziZAUDCBi7UDLsQHAkPdq
 
