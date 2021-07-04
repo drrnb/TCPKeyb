@@ -1,7 +1,9 @@
 
-![](https://i.imgur.com/X7blvOU.png)
+![TCPKeyb](https://i.imgur.com/X7blvOU.png)
 
 Send keystrokes over a network from one Windows computer to another.
+
+![Screenshot of TCPKeyb](screenshot.png)
 
 ## Running Requirements
 - Windows x64/x86
@@ -29,12 +31,23 @@ I am well aware that this same software could potentially be used for nefarious 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
+# Limitations & Known Issues
+TCPKeyb as it currently stands has some know limitations and issues.  
+They are subject to being fixed (or features added) in future releases.
+
+- The client does not poll the server so if a server disconnects, it takes a keypress before the client will notice.
+- The program will only send individual keystrokes. CTRL+A for example will only send CTRL, LSHIFT+T will only send LSHIFT and so on.
+- Keys cannot currently be "held", just pressed/released. Holding 'N' for example will just send one singular 'N' press.
+
 ## License
 [GNU AGPL 3.0](https://choosealicense.com/licenses/agpl-3.0/)
 
 ## Show Some <3
-If you get some use from TCPKey feel free to buy me a chocolate bar or coffee.  
+If you get some use from TCPKeyb feel free to buy me a chocolate bar or coffee.  
 
 **Ko-Fi:** [https://ko-fi.com/fuzzy]()  
 **BTC:** 1DUJH2kqccDpTHHSCXDkRGhxtvXm9PdnkN  
 **DOGE:** DNZbJrxv6UmeHziZAUDCBi7UDLsQHAkPdq
+
+## Credits
+TCPKeyb currently uses [Colorful.Console](https://github.com/tomakita/Colorful.Console) for text colouring.
